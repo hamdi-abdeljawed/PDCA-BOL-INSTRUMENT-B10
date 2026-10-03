@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="pageTitle">PDCA · BOL Instrument B10</title>
+<meta name="description" content="Rapport d'anomalies et suivi des actions correctives — BOL Instrument B10 — LEONI Mateur Sud" />
+<link rel="icon" href="assets/brand/leoni-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- LEONI BRAND BAND -->
+<div class="brandband">
+  <div class="brandband__inner">
+    <img src="assets/brand/leoni-logo.png" alt="LEONI" class="brandband__logo" />
+    <div class="brandband__divider"></div>
+    <div class="brandband__text">
+      <span class="brandband__plant">LEONI Mateur Sud</span>
+      <span class="brandband__tagline">The Quality Connection</span>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <div class="brand__mark">B10</div>
+      <div class="brand__text">
+        <span class="brand__title" id="brandTitle">BOL Instrument B10</span>
+        <span class="brand__sub" id="brandSub">Réf. 702 086 · Suivi Maintenance</span>
+      </div>
+    </div>
+    <nav class="topbar__nav">
+      <a href="#dashboard" class="active">Tableau de bord</a>
+      <a href="#anomalies">Anomalies</a>
+      <a href="#remarque">Synthèse</a>
+    </nav>
+    <button class="btn btn--ghost" id="printBtn" title="Imprimer le rapport complet">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6v-8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      Imprimer
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="dashboard">
+    <div class="hero__grid">
+      <div class="hero__col">
+        <div class="hero__label">PLAN · DO · CHECK · ACT</div>
+        <h1 class="hero__title" id="heroTitle">Rapport d'anomalies<br /><span>BOL Instrument B10</span></h1>
+        <p class="hero__subtitle" id="heroSubtitle">Suivi technique des contreparties — Qualité &amp; Performance production B10.</p>
+      </div>
+      <figure class="hero__cover">
+        <img src="assets/photos/cover-instrument.jpg" alt="Poste 702 086 — BOL Instrument B10" />
+        <figcaption>Poste 702 086 — Test électrique de continuité &amp; détection, BOL Instrument B10</figcaption>
+      </figure>
+    </div>
+
+    <div class="kpis" id="kpis">
+      <!-- injected by JS -->
+    </div>
+  </section>
+
+  <!-- PDCA CYCLE STRIP -->
+  <section class="cycle">
+    <div class="cycle__item" data-phase="plan">
+      <span class="cycle__icon">📋</span>
+      <div>
+        <strong>Plan</strong>
+        <p>Identification des anomalies récurrentes sur les contreparties de connexion (pins, continuité, Latch).</p>
+      </div>
+    </div>
+    <div class="cycle__item" data-phase="do">
+      <span class="cycle__icon">🔧</span>
+      <div>
+        <strong>Do</strong>
+        <p>Diagnostic terrain, intervention fournisseur et actions correctives ciblées.</p>
+      </div>
+    </div>
+    <div class="cycle__item" data-phase="check">
+      <span class="cycle__icon">🔍</span>
+      <div>
+        <strong>Check</strong>
+        <p>Vérification de la continuité électrique et de la détection du Latch après action.</p>
+      </div>
+    </div>
+    <div class="cycle__item" data-phase="act">
+      <span class="cycle__icon">✅</span>
+      <div>
+        <strong>Act</strong>
+        <p>Généralisation des actions efficaces et clôture formelle des anomalies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPLIER SCORECARD -->
+  <section class="scorecard" id="scorecard"></section>
+
+  <!-- FILTER TOOLBAR -->
+  <section class="toolbar" id="anomalies">
+    <div class="toolbar__title">
+      <h2>Suivi des contreparties</h2>
+      <span class="toolbar__count" id="resultCount"></span>
+    </div>
+    <div class="toolbar__controls">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="text" id="searchInput" placeholder="Rechercher (code, problème, pilote...)" />
+      </div>
+      <div class="chips" id="statusFilters" data-group="status">
+        <button class="chip active" data-value="all">Toutes</button>
+        <button class="chip" data-value="Résolu">Résolu</button>
+        <button class="chip" data-value="En cours">En cours</button>
+      </div>
+      <div class="chips" id="priorityFilters" data-group="priority">
+        <button class="chip active" data-value="all">Priorité</button>
+        <button class="chip" data-value="HAUTE">Haute</button>
+        <button class="chip" data-value="MOYENNE">Moyenne</button>
+      </div>
+      <div class="export-group">
+        <button class="btn btn--export" id="exportExcelBtn" title="Exporter la vue filtrée en Excel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 9l8 8M16 9l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Excel
+        </button>
+        <button class="btn btn--export" id="exportPdfBtn" title="Exporter la vue filtrée en PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 2h9l5 5v15H6V2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 2v5h5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          PDF
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANOMALIES TABLE -->
+  <section class="atable">
+    <div class="atable__head">
+      <span class="atable__col atable__col--photo">Photo</span>
+      <span class="atable__col atable__col--problem">Problème</span>
+      <span class="atable__col atable__col--pilot">Pilote</span>
+      <span class="atable__col atable__col--deadline">Délai</span>
+      <span class="atable__col atable__col--action"></span>
+    </div>
+    <div class="atable__body" id="cardsGrid"></div>
+  </section>
+
+  <!-- REMARQUE / SYNTHESE -->
+  <section class="remark" id="remarque">
+    <div class="remark__icon">💡</div>
+    <div>
+      <h3>Synthèse &amp; recommandation</h3>
+      <p id="remarkText"></p>
+    </div>
+  </section>
+
+  <!-- SIGNATURE / PREPARED BY -->
+  <section class="signature">
+    <div class="signature__avatar" id="signatureAvatar"></div>
+    <div class="signature__info">
+      <span class="signature__label">Rapport préparé par</span>
+      <span class="signature__name" id="signatureName"></span>
+      <span class="signature__role" id="signatureRole"></span>
+    </div>
+    <div class="signature__ref">
+      <span>Réf. document</span>
+      <strong id="signatureRef"></strong>
+    </div>
+  </section>
+
+  <!-- LIVING DOCUMENT NOTE -->
+  <p class="living-note">🔄 Ce tableau de bord est un document vivant : les informations seront mises à jour au fil de l'avancement des actions, par son développeur <strong>Hamdi Abdeljawed</strong>.</p>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <img src="assets/brand/leoni-logo.png" alt="LEONI" class="footer__logo" />
+    <span id="footerTitle">PDCA — BOL Instrument B10 · 702 086</span>
+    <span class="dot">·</span>
+    <span id="authorTag"></span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Fermer">✕</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Précédent">‹</button>
+  <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Suivant">›</button>
+  <div class="lightbox__caption" id="lightboxCaption"></div>
+  <button class="lightbox__detail" id="lightboxDetail">Voir la fiche complète →</button>
+</div>
+
+<!-- DETAIL DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+  <button class="drawer__close" id="drawerClose" aria-label="Fermer">✕</button>
+  <div id="drawerContent"></div>
+</aside>
+
+<!-- Export libraries (client-side, no backend required) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
