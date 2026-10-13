@@ -12,6 +12,7 @@ const PDCA_REPORTS = [
       reference: "702 086",
       zone: "BOL Instrument B10",
       cover: "assets/photos/cover-instrument.jpg",
+      interventionsBaseline: 5,
       remark:
         "Le service maintenance a réalisé une intervention sur les contreparties présentant des défauts de détection du Latch (EL233-3, EL233-4, EL188-2, EL115-11) ; le problème est désormais résolu et soldé. Par ailleurs, les contreparties EL119-2 et EL120-2 partagent la même référence de boîtier et sont toutes deux affectées par des ruptures de stock de pins chez le fournisseur EMDEP : un traitement groupé (approvisionnement + révision de conception du pin) est recommandé pour ces deux contreparties du BOL Instrument B10. Le problème de non-verrouillage sur EL119-2 est actuellement résolu côté détection, mais une surveillance reste nécessaire jusqu'à la mise en place d'une solution définitive afin de garantir la fiabilité du fonctionnement.",
     },
